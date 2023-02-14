@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class AlgoFrame extends JFrame {
     // private防止canvasWidth，canvasHeight遭到篡改
@@ -10,14 +11,39 @@ public class AlgoFrame extends JFrame {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
 
+        // 画布相关
+        AlgoCanvas canvas = new AlgoCanvas();
+//        canvas.setPreferredSize(new Dimension(canvasWidth,canvasHeight));
+        setContentPane(canvas);//将canvas设置为内容面板
+        pack(); // 自动调整Algoframe窗口大小
+        // ---------画布相关
+
+        // 窗口相关
         setSize(canvasWidth,canvasHeight);//相当于this.setSize，设置窗口大小
         setResizable(false); //禁止改变窗口大小
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击x，窗口自动关闭
 
         setVisible(true);//关键！显示窗口！
+        //----------窗口相关
 
     }
     // 提供访问的接口
     public int getCanvasWidth(){return canvasWidth;}
     public int getCanvasHeight(){return canvasHeight;}
+
+    private class AlgoCanvas extends JPanel{
+
+        @Override
+        public void paintComponent(Graphics g){
+            // paintComponent是JPanel中自带的方法，用于绘制
+            // 这里的Graphics相当于h5 canvas中的cxt var cxt = cnv.getContext('2d')
+            super.paintComponent(g); //继承父类paintComponent的方法
+            g.drawOval(50,50,300,300); //50圆心x坐标，50圆心y坐标，300宽，300高
+        }
+
+        @Override
+        public Dimension getPreferredSize(){
+            return new Dimension(canvasWidth,canvasHeight);
+        }
+    }
 }
