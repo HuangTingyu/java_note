@@ -58,3 +58,26 @@ public class AlgoFrame extends JFrame {
 
 ```
 
+
+
+### 私有变量
+
+防止`canvasWidth`，`canvasHeight`遭到篡改
+
+```java
+public class AlgoFrame extends JFrame {
+    // private防止canvasWidth，canvasHeight遭到篡改
+    private int canvasWidth;
+    private int canvasHeight;
+    public AlgoFrame(String title, int canvasWidth,int canvasHeight){
+        ......
+    	this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        ......
+    }
+    // 提供访问的接口
+    public int getCanvasWidth(){return canvasWidth;}
+    public int getCanvasHeight(){return canvasHeight;}
+}
+```
+
