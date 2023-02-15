@@ -44,8 +44,9 @@ public class AlgoFrame extends JFrame {
 //            Ellipse2D circle = new Ellipse2D.Float((float) 50.2,50,300,300); //50圆心x坐标，50圆心y坐标，300宽，300高
 
             //（1）画空心的圆形
-            int strokeWidth = 5;
-            g2d.setStroke(new BasicStroke(strokeWidth)); //设置线条粗细
+//            int strokeWidth = 5;
+//            g2d.setStroke(new BasicStroke(strokeWidth)); //设置线条粗细
+            AlgoVisHelper.setStrokeWidth(g2d, 5);
 
             g2d.setColor(Color.blue); // 改线条颜色
             Ellipse2D circle = new Ellipse2D.Double(50,50,300,300);
@@ -61,6 +62,7 @@ public class AlgoFrame extends JFrame {
 
         @Override
         public Dimension getPreferredSize(){
+            // 此处设置了canvas画布的大小
             return new Dimension(canvasWidth,canvasHeight);
         }
     }

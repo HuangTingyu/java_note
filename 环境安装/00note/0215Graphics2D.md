@@ -99,3 +99,53 @@ Rectangle2D 长方形
 Roud Rectangle2D 圆角长方形
 ```
 
+
+
+### Java基础-static静态类
+
+如果在任何方法上应用static关键字，此方法称为静态方法。
+
+静态方法属于类，而不属于类的对象。**可以直接调用静态方法，而无需创建类的实例。**
+
+静态方法可以访问静态数据成员，并可以更改静态数据成员的值。
+
+
+
+### 设置线条粗细
+
+`BasicStroke` 参数
+
+```java
+public class AlgoVisHelper {
+    private AlgoVisHelper(){}
+
+    public static void setStrokeWidth(Graphics2D g2d, int w){
+        int strokeWidth = w;
+        // strokeWidth设置线条粗细
+        // BasicStroke.CAP_ROUND 设置线条末端的点（使绘制更加平滑）
+        // BasicStroke.JOIN_ROUND 设置线条拐点（使绘制更加平滑）
+        g2d.setStroke(new BasicStroke(strokeWidth,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND)); //设置线条粗细
+    }
+}
+```
+
+
+
+`BasicStroke.CAP_ROUND`
+
+![BasicStroke_CAP_ROUND](..\image\BasicStroke_CAP_ROUND.png)
+
+
+
+`BasicStroke.JOIN_ROUND`
+
+![BasicStroke_JOIN_ROUND](..\image\BasicStroke_JOIN_ROUND.png)
+
+
+
+### 绘制圆
+
+```java
+
+```
+
