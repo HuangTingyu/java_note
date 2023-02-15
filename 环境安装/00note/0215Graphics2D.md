@@ -1,38 +1,7 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
+### `Graphics2D`
 
-public class AlgoFrame extends JFrame {
-    // private防止canvasWidth，canvasHeight遭到篡改
-    private int canvasWidth;
-    private int canvasHeight;
-    public AlgoFrame(String title, int canvasWidth,int canvasHeight){
-        super(title);
-
-        this.canvasWidth = canvasWidth;
-        this.canvasHeight = canvasHeight;
-
-        // 画布相关
-        AlgoCanvas canvas = new AlgoCanvas();
-//        canvas.setPreferredSize(new Dimension(canvasWidth,canvasHeight));
-        setContentPane(canvas);//将canvas设置为内容面板
-        pack(); // 自动调整Algoframe窗口大小
-        // ---------画布相关
-
-        // 窗口相关
-        setSize(canvasWidth,canvasHeight);//相当于this.setSize，设置窗口大小
-        setResizable(false); //禁止改变窗口大小
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击x，窗口自动关闭
-
-        setVisible(true);//关键！显示窗口！
-        //----------窗口相关
-
-    }
-    // 提供访问的接口
-    public int getCanvasWidth(){return canvasWidth;}
-    public int getCanvasHeight(){return canvasHeight;}
-
-    private class AlgoCanvas extends JPanel{
+```java
+private class AlgoCanvas extends JPanel{
 
         @Override
         public void paintComponent(Graphics g){
@@ -64,4 +33,69 @@ public class AlgoFrame extends JFrame {
             return new Dimension(canvasWidth,canvasHeight);
         }
     }
-}
+```
+
+
+
+#### 类型解释
+
+在`Java`中，`50.2` 是一个 `double` 类型，如果要在`Ellipse2D.Float`中使用，需要转换成`float`类型。转换有以下两种写法
+
+（1）
+
+```
+ new Ellipse2D.Float((float) 50.2,50,300,300);
+```
+
+（2）
+
+```
+ new Ellipse2D.Float(50.2f,50,300,300);
+```
+
+
+
+或者改用`Ellipse2D.Double` ，这样就不用类型转换。
+
+
+
+#### 改颜色
+
+```
+g2d.setColor(Color.blue); // 改线条颜色
+```
+
+
+
+#### 画空心的圆
+
+```java
+int strokeWidth = 5;
+g2d.setStroke(new BasicStroke(strokeWidth)); //设置线条粗细
+g2d.setColor(Color.blue); // 改线条颜色
+Ellipse2D circle = new Ellipse2D.Double(50,50,300,300);
+g2d.draw(circle);
+```
+
+
+
+#### 画实心的圆
+
+```java
+g2d.setColor(Color.cyan);
+Ellipse2D circle2 = new Ellipse2D.Double(50,50,300,300);
+g2d.fill(circle2);
+```
+
+
+
+### `Graphics2D`绘制种类
+
+```
+Ellipse2D 圆形
+Point2D 点
+Line2D 线条
+Rectangle2D 长方形
+Roud Rectangle2D 圆角长方形
+```
+
