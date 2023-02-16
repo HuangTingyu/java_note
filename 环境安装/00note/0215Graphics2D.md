@@ -146,6 +146,93 @@ public class AlgoVisHelper {
 ### 绘制圆
 
 ```java
+public class AlgoVisHelper {
+	public static void strokeCircle(Graphics2D g2d, int x, int y, int r){
+        Ellipse2D circle = new Ellipse2D.Double(x-r, y-r, 2*r, 2*r);
+        g2d.draw(circle);
+    }
+}
+```
 
+调用
+
+```java
+//            Ellipse2D circle = new Ellipse2D.Double(50,50,300,300);
+//            g2d.draw(circle);
+            AlgoVisHelper.strokeCircle(g2d,200,200,150);
+```
+
+解释，`Ellipse2D.Double` 这里定义的圆的xy坐标是指圆左上角的位置。
+
+<img src="..\image\Elli2D.png" alt="Elli2D" style="zoom:25%;" />
+
+`AlgoVisHelper.strokeCircle` 定义的圆的位置，是从圆心开始计算的。
+
+
+
+### 绘制水平垂直居中的圆
+
+到这里为止，如果发现画出来的圆不水平垂直居中。**请检查一下代码，是否有用了`setSize`设置窗口大小，记得把`setSize` 相关的代码注释掉。**因为将画布设置为内容面板后，窗口宽高会跟着 `canvas` 画布的宽高，如果再使用`setSize` ，会导致图形位置跑偏！
+
+
+
+```java
+public class AlgoFrame extends JFrame {
+    // private防止canvasWidth，canvasHeight遭到篡改
+    private int canvasWidth;
+    private int canvasHeight;
+    public AlgoFrame(String title, int canvasWidth,int canvasHeight){
+        super(title);
+
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+
+        // 画布相关
+        AlgoCanvas canvas = new AlgoCanvas();
+        setContentPane(canvas);//将canvas设置为内容面板
+        pack(); // 自动调整Algoframe窗口大小
+        // ---------画布相关
+
+        // 窗口相关
+        setResizable(false); //禁止改变窗口大小
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击x，窗口自动关闭
+
+        setVisible(true);//关键！显示窗口！
+        //----------窗口相关
+
+    }
+    // 提供访问的接口
+    public int getCanvasWidth(){return canvasWidth;}
+    public int getCanvasHeight(){return canvasHeight;}
+
+    private class AlgoCanvas extends JPanel{
+
+        @Override
+        public void paintComponent(Graphics g){
+            // paintComponent是JPanel中自带的方法，用于绘制
+            // 这里的Graphics相当于h5 canvas中的cxt var cxt = cnv.getContext('2d')
+            super.paintComponent(g); //继承父类paintComponent的方法
+            Graphics2D g2d = (Graphics2D) g;
+
+            // （1）画实心的圆形
+            AlgoVisHelper.setColor(g2d, Color.cyan);
+            AlgoVisHelper.fillCircle(g2d, canvasWidth/2, canvasHeight/2,200);
+            // ------（1）画实心的圆形
+
+            //（2）画空心的圆形
+
+            AlgoVisHelper.setStrokeWidth(g2d, 5); //设置线条粗细
+            AlgoVisHelper.setColor(g2d, Color.blue);
+            AlgoVisHelper.strokeCircle(g2d, canvasWidth/2, canvasHeight/2,200);
+            // ------（2）画空心的圆形
+        }
+
+        @Override
+        public Dimension getPreferredSize(){
+            // 此处设置了canvas画布的大小
+            return new Dimension(canvasWidth,canvasHeight);
+        }
+    }
+}
 ```
 

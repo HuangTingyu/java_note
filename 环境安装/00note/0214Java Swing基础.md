@@ -85,31 +85,35 @@ public class AlgoFrame extends JFrame {
 
 ### 添加画布
 
-
+注意，这里添加了画布，把画布设置为内容面板以后，不要再去用`setSize`调节窗口大小。不然会导致后面绘制的时候，图形的位置跑偏！
 
 ```java
 public class AlgoFrame extends JFrame {
-    ......
+    // private防止canvasWidth，canvasHeight遭到篡改
+    private int canvasWidth;
+    private int canvasHeight;
     public AlgoFrame(String title, int canvasWidth,int canvasHeight){
-        ......
+        super(title);
+
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
 
         // 画布相关
         AlgoCanvas canvas = new AlgoCanvas();
-        canvas.setPreferredSize(new Dimension(canvasWidth,canvasHeight));
+//        canvas.setPreferredSize(new Dimension(canvasWidth,canvasHeight));
         setContentPane(canvas);//将canvas设置为内容面板
         pack(); // 自动调整Algoframe窗口大小
         // ---------画布相关
-        }
-        private class AlgoCanvas extends JPanel{
-            
-            @Override
-        	public void paintComponent(Graphics g){
-            	// paintComponent是JPanel中自带的方法，用于绘制
-            	// 这里的Graphics相当于h5 canvas中的cxt var cxt = cnv.getContext('2d')
-            	super.paintComponent(g); //继承父类paintComponent的方法
-        	}
-    	}
-}
+
+        // 窗口相关
+        // setSize(canvasWidth,canvasHeight);//相当于this.setSize，设置窗口大小
+        setResizable(false); //禁止改变窗口大小
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击x，窗口自动关闭
+
+        setVisible(true);//关键！显示窗口！
+        //----------窗口相关
+
+    }
 ```
 
 

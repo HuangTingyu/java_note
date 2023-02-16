@@ -20,7 +20,7 @@ public class AlgoFrame extends JFrame {
         // ---------画布相关
 
         // 窗口相关
-        setSize(canvasWidth,canvasHeight);//相当于this.setSize，设置窗口大小
+        // setSize(canvasWidth,canvasHeight);//相当于this.setSize，设置窗口大小
         setResizable(false); //禁止改变窗口大小
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击x，窗口自动关闭
 
@@ -40,24 +40,18 @@ public class AlgoFrame extends JFrame {
             // 这里的Graphics相当于h5 canvas中的cxt var cxt = cnv.getContext('2d')
             super.paintComponent(g); //继承父类paintComponent的方法
             Graphics2D g2d = (Graphics2D) g;
-//            g.drawOval(50,50,300,300); //50圆心x坐标，50圆心y坐标，300宽，300高
-//            Ellipse2D circle = new Ellipse2D.Float((float) 50.2,50,300,300); //50圆心x坐标，50圆心y坐标，300宽，300高
 
-            //（1）画空心的圆形
-//            int strokeWidth = 5;
-//            g2d.setStroke(new BasicStroke(strokeWidth)); //设置线条粗细
-            AlgoVisHelper.setStrokeWidth(g2d, 5);
+            // （1）画实心的圆形
+            AlgoVisHelper.setColor(g2d, Color.cyan);
+            AlgoVisHelper.fillCircle(g2d, canvasWidth/2, canvasHeight/2,200);
+            // ------（1）画实心的圆形
 
-            g2d.setColor(Color.blue); // 改线条颜色
-            Ellipse2D circle = new Ellipse2D.Double(50,50,300,300);
-            g2d.draw(circle);
-            // ------（1）画空心的圆形
+            //（2）画空心的圆形
 
-            // （2）画实心的圆形
-            g2d.setColor(Color.cyan);
-            Ellipse2D circle2 = new Ellipse2D.Double(50,50,300,300);
-            g2d.fill(circle2);
-            // ------（2）画实心的圆形
+            AlgoVisHelper.setStrokeWidth(g2d, 5); //设置线条粗细
+            AlgoVisHelper.setColor(g2d, Color.blue);
+            AlgoVisHelper.strokeCircle(g2d, canvasWidth/2, canvasHeight/2,200);
+            // ------（2）画空心的圆形
         }
 
         @Override
