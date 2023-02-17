@@ -236,3 +236,56 @@ public class AlgoFrame extends JFrame {
 }
 ```
 
+
+
+### 抗锯齿
+
+锯齿产生原因 - 边缘非黑即白，过渡生硬。
+
+抗锯齿原理 - 边缘逐渐调整透明度至背景色。
+
+对比见下图，`锯齿` vs `非锯齿`
+
+<img src="..\image\anti_aliased.png" alt="anti_aliased" style="zoom:30%;" />
+
+代码保存
+
+```java
+@Override
+        public void paintComponent(Graphics g){
+            // paintComponent是JPanel中自带的方法，用于绘制
+            // 这里的Graphics相当于h5 canvas中的cxt var cxt = cnv.getContext('2d')
+            super.paintComponent(g); //继承父类paintComponent的方法
+            Graphics2D g2d = (Graphics2D) g;
+
+            // 抗锯齿
+            RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.addRenderingHints(hints);
+            ......
+}
+```
+
+
+
+### 单缓存/双缓存
+
+单缓存：
+
+画布上的图形位置改变时，需要清空一次画布，画面会闪烁一下。
+
+双缓存：
+
+用两块画布，第二块画布渲染好了，取代另一块画布投影到屏幕上，用户不会看到画面闪烁。
+
+
+
+开启双缓存
+
+```
+private class AlgoCanvas extends JPanel{
+        public  AlgoCanvas(){
+            super(true);
+        }
+ }
+```
+

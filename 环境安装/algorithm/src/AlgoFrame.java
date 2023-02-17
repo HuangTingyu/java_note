@@ -33,6 +33,9 @@ public class AlgoFrame extends JFrame {
     public int getCanvasHeight(){return canvasHeight;}
 
     private class AlgoCanvas extends JPanel{
+        public  AlgoCanvas(){
+            super(true);
+        }
 
         @Override
         public void paintComponent(Graphics g){
@@ -40,6 +43,10 @@ public class AlgoFrame extends JFrame {
             // 这里的Graphics相当于h5 canvas中的cxt var cxt = cnv.getContext('2d')
             super.paintComponent(g); //继承父类paintComponent的方法
             Graphics2D g2d = (Graphics2D) g;
+
+            // 抗锯齿
+            RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.addRenderingHints(hints);
 
             // （1）画实心的圆形
             AlgoVisHelper.setColor(g2d, Color.cyan);
