@@ -32,6 +32,14 @@ public class AlgoFrame extends JFrame {
     public int getCanvasWidth(){return canvasWidth;}
     public int getCanvasHeight(){return canvasHeight;}
 
+    // src/Circle.java调用
+    private Circle[] circles;
+    public void render(Circle[] circles){
+        this.circles = circles; // 把传进来circles数组保存到AlgoFrame中的private Circle[] circles;
+        repaint(); //JFrame自带方法，用于刷新画布
+    }
+    // ---------src/Circle.java调用
+
     private class AlgoCanvas extends JPanel{
         public  AlgoCanvas(){
             super(true);
@@ -48,17 +56,14 @@ public class AlgoFrame extends JFrame {
             RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
             g2d.addRenderingHints(hints);
 
-            // （1）画实心的圆形
-            AlgoVisHelper.setColor(g2d, Color.cyan);
-            AlgoVisHelper.fillCircle(g2d, canvasWidth/2, canvasHeight/2,200);
-            // ------（1）画实心的圆形
-
-            //（2）画空心的圆形
-
-            AlgoVisHelper.setStrokeWidth(g2d, 5); //设置线条粗细
-            AlgoVisHelper.setColor(g2d, Color.blue);
-            AlgoVisHelper.strokeCircle(g2d, canvasWidth/2, canvasHeight/2,200);
-            // ------（2）画空心的圆形
+            // src/Circle.java调用
+            // 绘制圆
+            AlgoVisHelper.setStrokeWidth(g2d, 1);
+            AlgoVisHelper.setColor(g2d, Color.CYAN);
+            // 这里的for循环相当于circles.forEach((circle)=>{......})
+            for(Circle circle:circles)
+                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+            // -------------- src/Circle.java调用
         }
 
         @Override
