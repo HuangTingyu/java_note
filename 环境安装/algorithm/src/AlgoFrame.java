@@ -16,12 +16,13 @@ public class AlgoFrame extends JFrame {
         AlgoCanvas canvas = new AlgoCanvas();
 //        canvas.setPreferredSize(new Dimension(canvasWidth,canvasHeight));
         setContentPane(canvas);//将canvas设置为内容面板
+
+        setResizable(false); //为了准确计算Menubar的大小
         pack(); // 自动调整Algoframe窗口大小
         // ---------画布相关
 
         // 窗口相关
         // setSize(canvasWidth,canvasHeight);//相当于this.setSize，设置窗口大小
-        setResizable(false); //禁止改变窗口大小
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击x，窗口自动关闭
 
         setVisible(true);//关键！显示窗口！

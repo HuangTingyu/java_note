@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AlgoVisualizer {
     private Circle[] circles;
@@ -28,6 +30,9 @@ public class AlgoVisualizer {
             // 添加键盘事件
             frame.addKeyListener(new AlgoKeyListener());
 
+            // 添加鼠标事件
+            frame.addMouseListener(new AlgoMouseListener());
+
             // new Thread开启一个新线程
             new Thread(()->{
                 run(sceneWidth,sceneHeight);
@@ -52,11 +57,26 @@ public class AlgoVisualizer {
     }
 
     private class AlgoKeyListener extends KeyAdapter{
+        // 键盘事件
         @Override
         public void keyReleased(KeyEvent event){
             if(event.getKeyChar() == ' ')
                 isAnimated = !isAnimated;
         }
+    }
+
+    private class AlgoMouseListener extends MouseAdapter{
+        // 鼠标事件
+//        @Override
+        public void mousePressed(MouseEvent event){
+            event.translatePoint(-8, -31);
+//            System.out.println(frame.getBounds().height);
+//            System.out.println(frame.getBounds().width);
+//            System.out.println(frame.getCanvasHeight());
+
+            System.out.println(event.getPoint());
+        }
+
     }
 
     public static void main(String[] args) {
