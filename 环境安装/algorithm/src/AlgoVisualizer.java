@@ -69,12 +69,15 @@ public class AlgoVisualizer {
         // 鼠标事件
 //        @Override
         public void mousePressed(MouseEvent event){
-            event.translatePoint(-8, -31);
-//            System.out.println(frame.getBounds().height);
-//            System.out.println(frame.getBounds().width);
-//            System.out.println(frame.getCanvasHeight());
+
+            int tranX = frame.getBounds().width - frame.getCanvasWidth();
+            int tranY = frame.getBounds().height - frame.getCanvasHeight();
+            event.translatePoint(-tranX, -tranY);
 
             System.out.println(event.getPoint());
+            for(Circle circle: circles)
+                if(circle.contain((event.getPoint())))
+                    circle.isFilled = !circle.isFilled;
         }
 
     }

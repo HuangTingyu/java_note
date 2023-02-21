@@ -44,7 +44,7 @@ public class AlgoFrame extends JFrame {
     private class AlgoCanvas extends JPanel{
         public  AlgoCanvas(){
             super(true);
-        }
+        } //开启双画布，防止画布白屏
 
         @Override
         public void paintComponent(Graphics g){
@@ -63,7 +63,10 @@ public class AlgoFrame extends JFrame {
             AlgoVisHelper.setColor(g2d, Color.CYAN);
             // 这里的for循环相当于circles.forEach((circle)=>{......})
             for(Circle circle:circles)
-                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                if(!circle.isFilled)
+                    AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                else
+                    AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getR());
             // -------------- src/Circle.java调用
         }
 

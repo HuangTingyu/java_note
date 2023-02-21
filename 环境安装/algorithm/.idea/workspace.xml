@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3153d04-a844-46ff-bcfa-242b5394a092" name="Changes" comment="" />
+    <list default="true" id="f3153d04-a844-46ff-bcfa-242b5394a092" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../00note/00Java基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/../00note/00Java基础.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../00note/0220鼠标事件.md" beforeDir="false" afterPath="$PROJECT_DIR$/../00note/0220鼠标事件.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

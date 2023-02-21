@@ -43,3 +43,48 @@ class Student9 {
 }
 ```
 
+
+
+### `JFrame`获取窗口宽高
+
+获取内容窗口高度
+
+```
+frame.getContentPane().getSize().height)
+```
+
+
+
+
+
+### 获取鼠标位置
+
+鼠标在GUI窗口内部
+
+添加`addMouseListener`
+
+`event.getPoint()` 获取
+
+```java
+frame.addMouseListener(new AlgoMouseListener());
+private class AlgoMouseListener extends MouseAdapter{
+        // 鼠标事件
+//        @Override
+        public void mousePressed(MouseEvent event){
+        	System.out.println(event.getPoint()); // 获取鼠标坐标
+        }
+}
+```
+
+
+
+鼠标不在GUI窗口内
+
+```java
+Point point = java.awt.MouseInfo.getPointerInfo().getLocation();
+System.out.println(point.x);
+```
+
+
+
+https://www.yiibai.com/swing/swing_mouse_event.html
