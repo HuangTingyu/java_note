@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3153d04-a844-46ff-bcfa-242b5394a092" name="Changes" comment="" />
+    <list default="true" id="f3153d04-a844-46ff-bcfa-242b5394a092" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/00分钱问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/00分钱问题.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/src/AlgoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/src/AlgoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/src/AlgoVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../概率模拟算法/00note/分钱问题/distribution/src/AlgoVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/distribution.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/src/AlgoFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/src/AlgoVisHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../概率模拟算法/distribution/src/AlgoVisualizer.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
