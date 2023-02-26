@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
+import java.util.Arrays;
 
 public class AlgoVisualizer {
 
@@ -32,17 +33,24 @@ public class AlgoVisualizer {
 
         // TODO: 编写自己的动画逻辑
         while (true){
+
+            Arrays.sort(money); //从少到多排序，更直观的展示
             frame.render(money);
             AlgoVisHelper.pause(DELAY);
 
-            for(int i =0; i<money.length;i++){
-                if(money[i]>0){
-                    int j = (int)(Math.random()*money.length); //取0-100之间的随机数
-                    // 随机挑一个人给1元
-                    money[i]-=1;
-                    money[j]+=1;
+            //每一次动画分50次钱，加快模拟速度
+            for(int k=0; k<50; k++){
+                // 模拟分钱的部分
+                for(int i =0; i<money.length;i++){
+//                    if(money[i]>0){
+                        int j = (int)(Math.random()*money.length); //取0-100之间的随机数
+                        // 随机挑一个人给1元
+                        money[i]-=1;
+                        money[j]+=1;
+//                    }
                 }
             }
+
         }
     }
 

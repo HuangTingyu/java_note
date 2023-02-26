@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82084e7e-5bb6-4384-96e0-b46a7837c8a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../distribution/src/AlgoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../distribution/src/AlgoFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../环境安装/algorithm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../环境安装/algorithm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../00分钱问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../00分钱问题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,13 +24,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/00git/java_note/概率模拟算法/00note/分钱问题/distribution"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/00git/java_note/概率模拟算法/00note/分钱问题/distribution&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AlgoVisualizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AlgoVisualizer" />
